@@ -26,5 +26,7 @@ def register():
 #--MAIN
 if __name__ == "__main__":
     window = Tk()
+    window.configure(bg="red")
+    window.wm_iconbitmap("favicon.ico")
     register()#prima registrazione paggina
     window.mainloop()
