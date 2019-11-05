@@ -20,12 +20,17 @@ def verifica(password, confirmpassword, window):
     if sicurezza == False:
         errorMessage = Label(window, text="Le due password inserite non corrispondono, riprovare", font=("ocr a extended", 14))
         errorMessage.pack(anchor="center")
-def register():
+def register(window2):
+    window2.destroy()
+    window = Tk()
+    window.wm_iconbitmap("favicon.ico")
     window.geometry("700x700")
     window.title("Create Account")
 
     mex = Label(window, text="\n\n\n\n\n\n\n\n\nCreazione del nuovo account:", font=("ocr a extended",16))
     mex2 = Label(window, text="\n- La lunghezza dell'username deve essere compresa\n tra 4 e 30 caratteri\n- La lunghezza della password deve essere compresa tra 6 e 30\n", font=("ocr a extended", 13))
+    mex = Label(window, text="\n\n\n\n\n\n\n\n\nCreazione del nuovo account:",font=("ocr a extended",16))
+    mex2 = Label(window, text="\n- La lunghezza dell'username deve essere compresa\n tra 4 e 30 caratteri\n- La lunghezza della password deve essere compresa tra 6 e 30\n", font=("ocr a extended",13))
     mex.pack(anchor="center")
     mex2.pack(anchor="center")
 
@@ -46,38 +51,40 @@ def register():
 
     bottone = Button(window, text="    invia    ", command = lambda : verifica(password, confirmpassword, window))
     bottone.pack(anchor="center")
+    window.mainloop()
 
 def login():
-    window.geometry("700x700")
-    window.title("Log in!")
+    window2 = Tk()
+    window2.wm_iconbitmap("favicon.ico")
+    window2.geometry("700x700")
+    window2.title("Log in!")
 
-    space1 = Label(window, text="\n\n\n\n\n\nLog in!:\n\n", font=("Verdana", 16))
+    space1 = Label(window2, text="\n\n\n\n\n\nLog in!:\n\n", font=("Verdana", 16))
     space1.pack(anchor="center")
 
-    textuser = Label(window, text="Username", font=("Magneto", 16))
-    user = Entry(window, bd=5)
+    textuser = Label(window2, text="Username", font=("Magneto", 16))
+    user  = Entry(window2, bd=5)
+    textuser = Label(window2, text="Username", font=("Magneto", 16))
+    user = Entry(window2, bd=5)
     textuser.pack(anchor="center")
     user.pack(anchor="center")
 
-    space2 = Label(window, text="\n")
+    space2 = Label(window2, text="\n")
     space2.pack(anchor="center")
 
-    textpwd = Label(window, text="Password", font=("Magneto", 16))
-    pwd = Entry(window, bd=5)
+    textpwd = Label(window2, text="Password", font=("Magneto", 16))
+    pwd = Entry(window2, bd=5)
     textpwd.pack(anchor="center")
     pwd.pack(anchor="center")
 
-    space3 = Label(window, text="\n")
+    space3 = Label(window2, text="\n")
     space3.pack(anchor="center")
 
-    registration = Button(window, text="Non sei ancora registrato? Clicca qui!", foreground="blue", bd=5, width=30, height=1, relief=RIDGE, font=("Verdana ", 10, "underline" ) )
+    registration = Button(window2, text="Non sei ancora registrato? Clicca qui!", foreground="blue", bd=5, width=30, height=1, relief=RIDGE, font=("Verdana ", 10, "underline" ), command = lambda : register(window2))
     registration.pack(anchor="center")
-
+    window2.mainloop()
 
 #--MAIN
 if __name__ == "__main__":
-    window = Tk()
-    window.wm_iconbitmap("favicon.ico")
-    register() #registration user
-    #login() #login
-    window.mainloop()
+    #register() #registration user
+    login() #login
