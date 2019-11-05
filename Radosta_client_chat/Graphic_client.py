@@ -50,8 +50,28 @@ def login():
     window.geometry("700x700")
     window.title("Log in!")
 
-    tuser = Label(window, text="Username", font = ("Magneto",16))
+    space1 = Label(window, text="\n\n\n\n\n\nLog in!:\n\n", font=("Verdana", 16))
+    space1.pack(anchor="center")
+
+    textuser = Label(window, text="Username", font=("Magneto", 16))
     user  = Entry(window, bd=5)
+    textuser.pack(anchor="center")
+    user.pack(anchor="center")
+
+    space2 = Label(window, text="\n")
+    space2.pack(anchor="center")
+
+    textpwd = Label(window, text="Password", font=("Magneto", 16))
+    pwd = Entry(window, bd=5)
+    textpwd.pack(anchor="center")
+    pwd.pack(anchor="center")
+
+    space3 = Label(window, text="\n")
+    space3.pack(anchor="center")
+
+    registration = Button(window, text="Non sei ancora registrato? Clicca qui!", foreground="blue", bd=5, width=30, height=1, relief=RIDGE, font=("Verdana ", 10, "underline" ) )
+    registration.pack(anchor="center")
+
 
 #--MAIN
 if __name__ == "__main__":
