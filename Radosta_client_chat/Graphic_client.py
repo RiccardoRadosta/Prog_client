@@ -23,6 +23,11 @@ def register():
     txtpassword.pack(anchor = "center")
     password.pack(anchor = "center")
 
+    txtconfirmpassword = Label(window, text="Conferma Password", font=("Magneto", 16))
+    confirmpassword = Entry(window, bd=5)
+    txtconfirmpassword.pack(anchor="center")
+    confirmpassword.pack(anchor="center")
+
 def login():
     window.geometry("700x700")
     window.title("Log in!")
