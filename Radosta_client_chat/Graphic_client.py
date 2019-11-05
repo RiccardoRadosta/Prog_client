@@ -2,8 +2,23 @@
 from tkinter import *
 
 #--VARIABILI
-
+sicurezza = True
 #--FUNZIONI
+def verifica(password, confirmpassword, window):
+    global sicurezza
+    password = password.get()
+    confirmpassword = confirmpassword.get()
+    print ("password= "+password+"\nConfirmPassword= "+confirmpassword)
+    if password == confirmpassword:
+        print("sono uguali")
+        sicurezza = True
+    else:
+        print("non sono uguali")
+        sicurezza = False
+
+    if sicurezza == False:
+        errorMessage = Label(window, text="Le due password inserite non corrispondono, riprovare", font=("ocr a extended", 14))
+        errorMessage.pack(anchor="center")
 def register():
     window.geometry("700x700")
     window.title("Create Account")
@@ -28,6 +43,9 @@ def register():
     txtconfirmpassword.pack(anchor="center")
     confirmpassword.pack(anchor="center")
 
+    bottone = Button(window, text="    invia    ", command = lambda : verifica(password, confirmpassword, window))
+    bottone.pack(anchor="center")
+
 def login():
     window.geometry("700x700")
     window.title("Log in!")
@@ -39,6 +57,6 @@ def login():
 if __name__ == "__main__":
     window = Tk()
     window.wm_iconbitmap("favicon.ico")
-    #register() #registration user
-    login() #login
+    register() #registration user
+    #login() #login
     window.mainloop()
