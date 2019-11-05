@@ -6,7 +6,7 @@ from tkinter import *
 #--FUNZIONI
 def register():
     window.geometry("700x700")
-    window.title("create account")
+    window.title("Create Account")
 
     mex = Label(window, text="\n\n\n\n\n\n\n\n\nCreazione del nuovo account:",font=("ocr a extended",16))
     mex2 = Label(window, text="\n- La lunghezza dell'username deve essere compresa\n tra 4 e 30 caratteri\n- La lunghezza della password deve essere compresa tra 6 e 30\n", font=("ocr a extended",13))
@@ -28,9 +28,17 @@ def register():
     txtconfirmpassword.pack(anchor="center")
     confirmpassword.pack(anchor="center")
 
+def login():
+    window.geometry("700x700")
+    window.title("Log in!")
+
+    tuser = Label(window, text="Username", font = ("Magneto",16))
+    user  = Entry(window, bd=5)
+
 #--MAIN
 if __name__ == "__main__":
     window = Tk()
     window.wm_iconbitmap("favicon.ico")
-    register()#prima registrazione paggina
+    #register() #registration user
+    login() #login
     window.mainloop()
