@@ -1,6 +1,8 @@
 #--IMPORT
 import socket
 
+a=5
+
 #--VARIABILI
 server = ""#da aggiungere quando qualcuno creera un server
 port = 7
