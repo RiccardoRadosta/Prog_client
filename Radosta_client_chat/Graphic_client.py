@@ -3,12 +3,13 @@ from tkinter import *
 
 #--VARIABILI
 sicurezza = True
+
 #--FUNZIONI
 def verifica(password, confirmpassword, window):
     global sicurezza
     password = password.get()
     confirmpassword = confirmpassword.get()
-    print ("password= "+password+"\nConfirmPassword= "+confirmpassword)
+    print("password= " + password + "\nConfirmPassword= " + confirmpassword)
     if password == confirmpassword:
         print("sono uguali")
         sicurezza = True
@@ -23,20 +24,20 @@ def register():
     window.geometry("700x700")
     window.title("Create Account")
 
-    mex = Label(window, text="\n\n\n\n\n\n\n\n\nCreazione del nuovo account:",font=("ocr a extended",16))
-    mex2 = Label(window, text="\n- La lunghezza dell'username deve essere compresa\n tra 4 e 30 caratteri\n- La lunghezza della password deve essere compresa tra 6 e 30\n", font=("ocr a extended",13))
+    mex = Label(window, text="\n\n\n\n\n\n\n\n\nCreazione del nuovo account:", font=("ocr a extended",16))
+    mex2 = Label(window, text="\n- La lunghezza dell'username deve essere compresa\n tra 4 e 30 caratteri\n- La lunghezza della password deve essere compresa tra 6 e 30\n", font=("ocr a extended", 13))
     mex.pack(anchor="center")
     mex2.pack(anchor="center")
 
-    txtusername = Label(window, text="Username", font = ("Magneto",16))
+    txtusername = Label(window, text="Username", font=("Magneto", 16))
     username = Entry(window, bd=5)
-    txtusername.pack(anchor = "center")
-    username.pack(anchor = "center")
+    txtusername.pack(anchor="center")
+    username.pack(anchor="center")
 
-    txtpassword = Label(window, text="Password", font = ("Magneto",16))
+    txtpassword = Label(window, text="Password", font = ("Magneto", 16))
     password = Entry(window, bd=5)
-    txtpassword.pack(anchor = "center")
-    password.pack(anchor = "center")
+    txtpassword.pack(anchor="center")
+    password.pack(anchor="center")
 
     txtconfirmpassword = Label(window, text="Conferma Password", font=("Magneto", 16))
     confirmpassword = Entry(window, bd=5)
@@ -54,7 +55,7 @@ def login():
     space1.pack(anchor="center")
 
     textuser = Label(window, text="Username", font=("Magneto", 16))
-    user  = Entry(window, bd=5)
+    user = Entry(window, bd=5)
     textuser.pack(anchor="center")
     user.pack(anchor="center")
 
