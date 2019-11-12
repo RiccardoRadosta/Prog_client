@@ -5,8 +5,9 @@ import time
 #--VARIABILI
 #server = "172.16.20.143"#Server Martino
 #server = "172.16.3.219"#Server Sartori
-server = "172.16.3.230"#Server Pizzoli
+#server = "172.16.3.230"#Server Pizzoli
 #server = "172.16.3.231"#Server bragastini
+server = "192.168.43.252"#Server mio
 port = 2000
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((server, port))
