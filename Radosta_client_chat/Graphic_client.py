@@ -6,21 +6,42 @@ from Radosta_client_chat import Client_TCP
 sicurezza = True
 
 #--FUNZIONI
-def verifica(password, confirmpassword, window):
+def verifica(username, password, confirmpassword, window):
     global sicurezza
     password = password.get()
     confirmpassword = confirmpassword.get()
     print("password= " + password + "\nConfirmPassword= " + confirmpassword)
-    if password == confirmpassword:
-        print("sono uguali")
-        sicurezza = True
-    else:
-        print("non sono uguali")
-        sicurezza = False
 
-    if sicurezza == False:
-        errorMessage = Label(window, text="Le due password inserite non corrispondono, riprovare", font=("ocr a extended", 14))
+    if len(username.get()) > 4 and len(username.get()) < 30:
+        sicureMex1 = True
+        if len(password) > 6 and len(password) < 30 :
+            sicureMex2 = True
+
+            if password == confirmpassword:
+                print("Sono uguali!\n")
+                sicureMex3 = True
+
+            else:
+                print("Non sono uguali!\n")
+                sicureMex3 = False
+
+            if sicureMex3 == False:
+                errorMessage = Label(window, text="Le due password inserite non corrispondono, riprovare", font=("ocr a extended", 12), foreground="red")
+                errorMessage.pack(anchor="center")
+        else:
+            sicureMex2 = False
+
+        if sicureMex2 == False:
+            errorMessage = Label(window, text="La password non soddisfa i requisiti. Riprova!", font=("ocr a extended", 12), foreground="red")
+            errorMessage.pack(anchor="center")
+    else:
+        sicureMex1 = False
+
+    if sicureMex1 == False:
+        errorMessage = Label(window, text="L'username non soddisfa i requisiti. Riprova!", font=("ocr a extended", 12), foreground="red")
         errorMessage.pack(anchor="center")
+
+
 def register(window2):
     window2.destroy()
     window = Tk()
@@ -28,7 +49,7 @@ def register(window2):
     window.geometry("700x700")
     window.title("Create Account")
 
-    mex = Label(window, text="\n\n\n\n\n\n\n\n\nCreazione del nuovo account:",font=("ocr a extended",16))
+    mex = Label(window, text="\n\n\n\n\n\n\n\n\nCreazione del nuovo account:", font=("ocr a extended",16))
     mex2 = Label(window, text="\n- La lunghezza dell'username deve essere compresa\n tra 4 e 30 caratteri\n- La lunghezza della password deve essere compresa tra 6 e 30\n", font=("ocr a extended",13))
     mex.pack(anchor="center")
     mex2.pack(anchor="center")
@@ -48,7 +69,7 @@ def register(window2):
     txtconfirmpassword.pack(anchor="center")
     confirmpassword.pack(anchor="center")
 
-    bottone = Button(window, text="Invia", width=10, height=1, relief=RIDGE, command=lambda: verifica(password, confirmpassword, window))
+    bottone = Button(window, text="Invia", width=10, height=1, relief=RIDGE, command=lambda: verifica(username, password, confirmpassword, window))
     bottone.pack(anchor="center")
 
     window.mainloop()
