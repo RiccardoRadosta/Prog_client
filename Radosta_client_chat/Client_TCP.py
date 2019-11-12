@@ -3,8 +3,13 @@ import socket
 import time
 
 #--VARIABILI
-server = "172.16.20.143"#da aggiungere quando qualcuno creera un server
+#server = "172.16.20.143"#Server Martino
+server = "172.16.3.219"#Server Sartori
 port = 2000
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((server, port))
+
+
 
 #--FUNZIONI
 def registerclient(user, password):
@@ -39,6 +44,9 @@ def logout():
     pacchetto.append(0)
     return pacchetto
 
+def mex_recv():
+    r = s.recv(1024)
+    return r
 #--MAIN
 if __name__ == "__main__":
 
@@ -46,14 +54,14 @@ if __name__ == "__main__":
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((server, port))
     user, password = "ridosta", "sono_bellixxximo"
-    #s.send(register(user, password))
-    s.send(login(user, password))
+    s.send(registerclient(user, password))
+    #s.send(login(user, password))
     r = s.recv(1024)
     print(r)
-    time.sleep(10)
-    s.send(logout())
-    r = s.recv(1024)
-    print(r)
+    #time.sleep(5)
+    #s.send(logout())
+    #r = s.recv(1024)
+    #print(r)
     # nbyte=s.send(b'hello world!')
     # print("send", nbyte)
     # data = s.recv(1024)
