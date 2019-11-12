@@ -2,8 +2,8 @@
 import socket
 
 #--VARIABILI
-server = ""#da aggiungere quando qualcuno creera un server
-port = 7
+server = "172.16.20.143"#da aggiungere quando qualcuno creera un server
+port = 2000
 
 #--FUNZIONI
 def register(user, password):
@@ -38,8 +38,9 @@ if __name__ == "__main__":
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((server, port))
-    user, password = "tognella", "password"
+    user, password = "ridosta", "sono_bellixxximo"
     s.send(register(user, password))
+
 
 
     # nbyte=s.send(b'hello world!')
@@ -47,4 +48,6 @@ if __name__ == "__main__":
     # data = s.recv(1024)
     #
     # print('Received', str(data), len(data))
-    s.close()
+    while 1:
+        r = s.recv(1024)
+        print(r)
