@@ -87,7 +87,7 @@ def graphic_login (username, password, window2):
     if recv[0] == 0:
         Message = Label(window2, text="Credenziali accettate", font=("ocr a extended", 14))
         Message.pack(anchor="center")
-        #AGGIUNGERE IL COLLEGAMENTO CON LA FINIìESTRA DEI MESSAGGI
+        message_interface(window2)
     else:
         Message = Label(window2, text="Credenziali NON accettate", font=("ocr a extended", 14))
         Message.pack(anchor="center")
@@ -126,9 +126,23 @@ def login():
     registration = Button(window2, text="Non sei ancora registrato? Clicca qui!", foreground="blue", bd=5, width=30, height=1, relief=RIDGE, font=("Verdana ", 10, "underline"), command=lambda: register(window2))
     registration.pack(anchor="center")
 
-
-
     window2.mainloop()
+
+def graphic_online_users(window3):
+    Client_TCP.online_users()
+    r = Client_TCP.mex_recv()
+    Message = Label(window3, text=r, font=("ocr a extended", 14))
+    Message.pack(anchor="center")
+
+def message_interface(window2):
+    window2.destroy()
+    window3 = Tk()
+    window3.wm_iconbitmap("favicon.ico")
+    window3.geometry("700x700")
+    window3.title("Interfaccia messaggi")
+    graphic_online_users(window3)
+    window3.mainloop()
+
 
 #--MAIN
 if __name__ == "__main__":

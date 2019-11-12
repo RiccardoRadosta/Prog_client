@@ -4,7 +4,9 @@ import time
 
 #--VARIABILI
 #server = "172.16.20.143"#Server Martino
-server = "172.16.3.219"#Server Sartori
+#server = "172.16.3.219"#Server Sartori
+server = "172.16.3.230"#Server Pizzoli
+#server = "172.16.3.231"#Server bragastini
 port = 2000
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((server, port))
@@ -12,6 +14,13 @@ s.connect((server, port))
 
 
 #--FUNZIONI
+def online_users():
+    pacchetto = bytearray()
+    pacchetto.append(42)
+    pacchetto.append(0)
+    s.send(pacchetto)
+    return pacchetto
+
 def registerclient(user, password):
     newLogin = dataToBytes([user, password])
     pacchetto = bytearray()
@@ -45,6 +54,7 @@ def logout():
     pacchetto = bytearray()
     pacchetto.append(12)
     pacchetto.append(0)
+    s.send(pacchetto)
     return pacchetto
 
 def mex_recv():
