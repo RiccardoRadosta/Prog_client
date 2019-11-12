@@ -73,9 +73,11 @@ def register(window2):
     bottone.pack(anchor="center")
 
     window.mainloop()
+
 def graphic_login (username, password, window2):
     Client_TCP.login(username.get(), password.get())
-    recv =Client_TCP.mex_recv()
+    recv = Client_TCP.mex_recv()
+    print(recv)
     if recv =="b'\x00\x00\x00'":
         print(recv)
         Message = Label(window2, text="Credenziali accettate", font=("ocr a extended", 14))
@@ -84,6 +86,7 @@ def graphic_login (username, password, window2):
         print(recv)
         Message = Label(window2, text="Credenziali NON accettate", font=("ocr a extended", 14))
         Message.pack(anchor="center")
+
 def login():
     window2 = Tk()
     window2.wm_iconbitmap("favicon.ico")
