@@ -20,7 +20,14 @@ def verifica(username, password, confirmpassword, window):
             if password == confirmpassword:
                 print("Sono uguali!\n")
                 sicureMex3 = True
-
+                Client_TCP.registerclient(username.get(), password)
+                recv = Client_TCP.mex_recv()
+                if recv[0] == 0:
+                    print("stiamo lavorando per voi")
+                    # AGGIUNGERE IL COLLEGAMENTO CON LA FINIìESTRA DEI MESSAGGI
+                else:
+                    Message = Label(window, text="Utente già registrato con queste credenziali", font=("ocr a extended", 14))
+                    Message.pack(anchor="center")
             else:
                 print("Non sono uguali!\n")
                 sicureMex3 = False
@@ -77,13 +84,11 @@ def register(window2):
 def graphic_login (username, password, window2):
     Client_TCP.login(username.get(), password.get())
     recv = Client_TCP.mex_recv()
-    print(recv)
-    if recv =="b'\x00\x00\x00'":
-        print(recv)
+    if recv[0] == 0:
         Message = Label(window2, text="Credenziali accettate", font=("ocr a extended", 14))
         Message.pack(anchor="center")
+        #AGGIUNGERE IL COLLEGAMENTO CON LA FINIìESTRA DEI MESSAGGI
     else:
-        print(recv)
         Message = Label(window2, text="Credenziali NON accettate", font=("ocr a extended", 14))
         Message.pack(anchor="center")
 

@@ -19,6 +19,7 @@ def registerclient(user, password):
     leng = len(newLogin).to_bytes(2, byteorder="big")
     pacchetto += leng
     pacchetto += newLogin
+    s.send(pacchetto)
     return pacchetto
 
 def login(user, password):
@@ -28,6 +29,8 @@ def login(user, password):
     leng = len(Login).to_bytes(2, byteorder="big")
     pacchetto += leng
     pacchetto += Login
+
+    s.send(pacchetto)
     return pacchetto
 
 def dataToBytes(data):
@@ -45,7 +48,10 @@ def logout():
     return pacchetto
 
 def mex_recv():
+    print(s)
     r = s.recv(1024)
+    print("ciao")
+    print(r)
     return r
 #--MAIN
 if __name__ == "__main__":
@@ -54,9 +60,9 @@ if __name__ == "__main__":
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((server, port))
     user, password = "ridosta", "sono_bellixxximo"
-    s.send(registerclient(user, password))
-    #s.send(login(user, password))
-    r = s.recv(1024)
+    #s.send(registerclient(user, password))
+    s.send(login(user, password))
+    r = mex_recv()
     print(r)
     #time.sleep(5)
     #s.send(logout())
