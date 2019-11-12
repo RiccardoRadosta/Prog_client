@@ -1,6 +1,7 @@
 #--IMPORT
 from tkinter import *
 from Radosta_client_chat import Client_TCP
+
 #--VARIABILI
 sicurezza = True
 
@@ -47,8 +48,9 @@ def register(window2):
     txtconfirmpassword.pack(anchor="center")
     confirmpassword.pack(anchor="center")
 
-    bottone = Button(window, text="    invia    ", command=lambda: verifica(password, confirmpassword, window))
+    bottone = Button(window, text="Invia", width=10, height=1, relief=RIDGE, command=lambda: verifica(password, confirmpassword, window))
     bottone.pack(anchor="center")
+
     window.mainloop()
 
 def login():
@@ -76,8 +78,17 @@ def login():
     space3 = Label(window2, text="\n")
     space3.pack(anchor="center")
 
+    bottone = Button(window2, text="Invia", width=5, height=1, relief=RIDGE)
+    bottone.pack(anchor="center")
+
+    space4 = Label(window2, text="\n")
+    space4.pack(anchor="center")
+
     registration = Button(window2, text="Non sei ancora registrato? Clicca qui!", foreground="blue", bd=5, width=30, height=1, relief=RIDGE, font=("Verdana ", 10, "underline"), command=lambda: register(window2))
     registration.pack(anchor="center")
+
+
+
     window2.mainloop()
 
 #--MAIN

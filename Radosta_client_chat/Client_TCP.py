@@ -1,6 +1,7 @@
 #--IMPORT
 import socket
 import time
+
 #--VARIABILI
 server = "172.16.20.143"#da aggiungere quando qualcuno creera un server
 port = 2000
@@ -37,6 +38,7 @@ def logout():
     pacchetto.append(12)
     pacchetto.append(0)
     return pacchetto
+
 #--MAIN
 if __name__ == "__main__":
 
