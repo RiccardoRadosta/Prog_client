@@ -7,7 +7,7 @@ server = "172.16.20.143"#da aggiungere quando qualcuno creera un server
 port = 2000
 
 #--FUNZIONI
-def register(user, password):
+def registerclient(user, password):
     newLogin = dataToBytes([user, password])
     pacchetto = bytearray()
     pacchetto.append(10)

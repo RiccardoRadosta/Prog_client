@@ -78,7 +78,7 @@ def login():
     space3 = Label(window2, text="\n")
     space3.pack(anchor="center")
 
-    bottone = Button(window2, text="Invia", width=5, height=1, relief=RIDGE)
+    bottone = Button(window2, text="Invia", width=5, height=1, relief=RIDGE, command=lambda:s)
     bottone.pack(anchor="center")
 
     space4 = Label(window2, text="\n")
