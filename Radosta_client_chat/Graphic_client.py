@@ -1,5 +1,6 @@
 #--IMPORT
 from tkinter import *
+from PIL import ImageTk, Image
 from Radosta_client_chat import Client_TCP
 
 #--VARIABILI
@@ -48,8 +49,7 @@ def verifica(username, password, confirmpassword, window):
         errorMessage = Label(window, text="L'username non soddisfa i requisiti. Riprova!", font=("ocr a extended", 12), foreground="red")
         errorMessage.pack(anchor="center")
 
-
-def register(window2):
+def register(window2, window):
     window2.destroy()
     window = Tk()
     window.wm_iconbitmap("favicon.ico")
@@ -92,13 +92,20 @@ def graphic_login (username, password, window2):
         Message = Label(window2, text="Credenziali NON accettate", font=("ocr a extended", 14))
         Message.pack(anchor="center")
 
-def login():
+def login(window2):
     window2 = Tk()
+    # image = Image.open("blue-space.jpg")
+    # photo = ImageTk.PhotoImage(image)
+    # w = Label(window2, image=photo)
+    # w.place(x=0, y=0, relwidth=1, relheight=1)
     window2.wm_iconbitmap("favicon.ico")
     window2.geometry("700x700")
     window2.title("Log in!")
 
-    space1 = Label(window2, text="\n\n\n\n\n\nLog in!:\n\n", font=("Verdana", 16))
+    space0 = Label(window2, text="\n")
+    space0.pack(anchor="center")
+
+    space1 = Label(window2, text="Log in!:", font=("Verdana", 16))
     space1.pack(anchor="center")
 
     textuser = Label(window2, text="Username", font=("Magneto", 16))
