@@ -1,6 +1,6 @@
 #--IMPORT
 from tkinter import *
-
+from Radosta_client_chat import Client_TCP
 #--VARIABILI
 sicurezza = True
 
